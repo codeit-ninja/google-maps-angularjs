@@ -60,11 +60,10 @@ The map will automaticly center itself so all the markers are visible. To disabl
 Disable automatic centering
 ---------------------------
 
-You can disable the automatic centering of the map using  
-`data-center="false"`. The map will not focus on the first address given in the `data-addresses`. You manually set its focus point, see example below.
+You can disable the automatic centering of the map using  `data-center="false"`. If disabled the map will not focus on the first address given in the `data-addresses` attribute.
 
 Disable centering and set focus point
 -------------------------------------
 
-You can specify a focus point by giving the index. The first address is set as `0` the second address as `1`, and so on.  
+You can specify a focus point by giving the index. You can only use `data-focus-on` if `data-center` is set to false. The first address is set as `0` the second address as `1`, and so on.  
 Eg: `data-focus-on="2"` change it to `1`, or `0`, and see what happens.
