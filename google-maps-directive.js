@@ -1,6 +1,11 @@
 /**
- * @version         v1.0.0              {Build}.{Update}.{Bugfixes}
- * @author          Richard Mauritz     Ask me if questions or improvements ;
+ * @version         v1.0.1              {Build}.{Update}.{Bugfixes}
+ * @author          Richard Mauritz     Ask me if questions or improvements ;)
+ * @documentation   ...                 Will be added later
+ * @package         Solvisoft           Solvisoft standard
+ *
+ * @log             v1.0.1              Replaced `let` with `var`. Let is a reserved keyword in Safari browsers.
+ *                                      Added support for a custom marker icon
  */
 (function () {
     'use strict';
@@ -17,21 +22,18 @@
              *
              * @param {object}  settings    - MapOptions object specification. See: https://developers.google.com/maps/documentation/javascript/reference
              * @param {object}  markers     - Object with markers containing latitude and longitude values
+             * @param {string}  icon        - Custom marker icon
              * @param {integer} zoom        - Zoom level between 0 and 22
-             * @param {boolean} center      - If set to false, the map will set auto focus on one marker. When zooming out the other markers are then visible
-             * @param {integer} focusOn     - Specify which address you want to zoom at. To use this, you have to set center to false For example: 
-             *                                If you have 3 addresses you can focus on either address 0, 1 or 2.
+             * @param {integer} center      - Center the map, default is true. Set false if you have multiple markers but dont want to center the map.
+             * @param {integer} focusOn     - Index of object markers. When multiple markers are used, you can set the zoom on a specific location.
              * @param {integer} elem        - Directive element
              */
-            createMap: function (settings, markers, zoom, center, focusOn, elem) {
+            createMap: function (settings, markers, icon, zoom, center, focusOn, elem) {
 
                 /**
                  * Set an unique ID selector
                  */
                 var uid = Math.random().toString(36).substr(2, 9);
-                /**
-                 * Set the uid as ID on the element
-                 */
                 elem.attr("id", uid);
                 
                 /**
@@ -52,7 +54,8 @@
                 for (var i in markers) {
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(markers[i].lat, markers[i].lng),
-                        map: map
+                        map: map,
+                        icon: icon
                     });                    
                     
                     if (markers.length > 1 && center) {
@@ -141,7 +144,7 @@
                 focusOn: "@",
                 backgroundColor: "@",
                 clickableIcons: "@",
-                disableDefaultUI: "@",
+                disableDefaultUi: "@",
                 disableDoubleClickZoom: "@",
                 draggingCursor: "@",
                 fullscreenControl: "@",
@@ -168,14 +171,12 @@
                 zoomControlOptions: "@",
             },
             link: function (scope, elem, attrs) {
-                console.log(scope);
-              
                 /**
                  * Check if multiple markers are set
                  */
                 if (scope.markers) {
                     /**
-                     * End result of this array will be something like {lat: 32.0348982, lgn: -122.453435}, {lat: 25.2432342, lgn: -140.454357}
+                     * Data will be pushed inside this array like {lat: 32.0348982, lgn: -122.453435}
                      */
                     var markers = [];
 
@@ -185,7 +186,7 @@
                     var settings = {
                         backgroundColor: scope.backgroundColor,
                         clickableIcons: scope.clickableIcons,
-                        disableDefaultUI: scope.disableDefaultUI,
+                        disableDefaultUI: scope.disableDefaultUi,
                         disableDoubleClickZoom: scope.disableDoubleClickZoom,
                         draggingCursor: scope.draggingCursor,
                         fullscreenControl: scope.fullscreenControl,
@@ -212,11 +213,13 @@
                     }
 
                     /**
-                     * Set the coordinates
+                     * Setup a promise
                      */
                     GoogleMaps.setCoordinates(scope.markers).then(function (coordinates) {
                         /**
                          * Push coordinates to markers array
+                         *
+                         * @since v1.0.1    - Replaced `let i` with `var i`
                          */
                         for (var i in coordinates) {
                             var coordinate = coordinates[i].split(" ");
@@ -226,6 +229,7 @@
                         /**
                          * Set data which is necessary for the GoogleMaps.createMap() function
                          */
+                        var icon = (attrs.icon ? attrs.icon : "")
                         var zoom = (attrs.zoom ? Number(attrs.zoom) : 8);
                         var center = (attrs.center == "false" ? false : true);
                         var focusOn = (attrs.focusOn ? Number(attrs.focusOn) : 0);
@@ -233,7 +237,7 @@
                         /**
                          * Create the map
                          */
-                        GoogleMaps.createMap(settings, markers, zoom, center, focusOn, elem);
+                        GoogleMaps.createMap(settings, markers, icon, zoom, center, focusOn, elem);
                     });
                 }
             }
