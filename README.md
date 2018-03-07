@@ -1,2 +1,67 @@
-# google-maps-angularjs
-AngularJS directive for Google Maps
+Google Maps - AngularJS Directive
+=================================
+
+Easy to use Google Maps `AngularJS Directive`
+
+Both addresses and latitude / longitude are supported as addresses.
+
+All options you have within the Google Maps API are available through the `data` attributes.
+
+**Examples:**  
+
+*   data-zoom="5"
+*   data-clickable-icons="false"
+*   data-styles="\[YOUR CUSTOM JSON STYLE\]"
+*   data-fullscreen-control="false"
+
+For a full list of options with explenation, please visit the official google API site: [https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions](https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions)
+
+Installation
+------------
+
+Copy and paste the directive into your project.
+
+Include the module
+
+angular.module('myApp', \['GoogleMaps'\])
+
+Place this somewhere in your `html`
+
+<google-maps 
+    data-addresses="dalwagenseweg 60a" 
+    data-zoom="14"
+    ... >
+<⁄google-maps>
+
+Using an address
+----------------
+
+You can specify a marker using an address, eg:  
+`data-markers="Prunesstraat 3 opheusden"`
+
+Using latitude / longitude
+--------------------------
+
+You can specify a marker using latitude / longitude like so:  
+`data-markers="51.927742 5.636626" // which translates to Dalwagenseweg 60a opheusden`.  
+Separate the lat / long value with a whitespace.
+
+Multiple addresses
+------------------
+
+You can add multiple markers, separate them using `;`, eg:  
+`data-markers="Prunesstraat 3 opheusden"`
+
+The map will automaticly center itself so all the markers are visible. To disable this feature, see example below
+
+Disable automatic centering
+---------------------------
+
+You can disable the automatic centering of the map using  
+`data-center="false"`. The map will not focus on the first address given in the `data-addresses`. You manually set its focus point, see example below.
+
+Disable centering and set focus point
+-------------------------------------
+
+You can specify a focus point by giving the index. The first address is set as `0` the second address as `1`, and so on.  
+Eg: `data-focus-on="2"` change it to `1`, or `0`, and see what happens.
