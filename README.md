@@ -84,3 +84,10 @@ Disable centering and set focus point
 You can specify a focus point by giving the index. You can only use `data-focus-on` if `data-center` is set to false. The first address is set as `0` the second address as `1`, and so on.  Eg: `data-focus-on="2"` change it to `1`, or `0`, and see what happens.
 
 [https://codepen.io/richardmauritz/pen/jYPBde](https://codepen.io/richardmauritz/pen/jYPBde)
+
+Custom marker icon
+-------------------------------------
+
+You can specify a custom icon like so: `data-icon="path_to_your_icon"`
+
+[https://codepen.io/richardmauritz/pen/jYPBde](https://codepen.io/richardmauritz/pen/jYPBde)
