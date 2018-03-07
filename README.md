@@ -36,6 +36,15 @@ Place this somewhere in your `html`
 <⁄google-maps>
 ```
 
+You also have to set this `css`
+
+```css
+google-maps {
+  display: block;
+  min-height: 250px; // If no height / min-height isset, the map won't be visible.
+}
+```
+
 Using an address
 ----------------
 
