@@ -218,7 +218,7 @@
                         /**
                          * Push coordinates to markers array
                          */
-                        for (let i in coordinates) {
+                        for (var i in coordinates) {
                             var coordinate = coordinates[i].split(" ");
                                 markers.push({ lat: Number(coordinate[0]), lng: Number(coordinate[1]) });
                         }
