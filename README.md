@@ -14,7 +14,7 @@ All options you have within the Google Maps API are available through the `data`
 *   data-styles="\[YOUR CUSTOM JSON STYLE\]"
 *   data-fullscreen-control="false"
 
-For a full list of options with explenation, please visit the official google API site: [https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions](https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions)
+For a full list of options with explanation, please visit the official google API site: [https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions](https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions)
 
 Installation
 ------------
