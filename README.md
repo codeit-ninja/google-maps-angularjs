@@ -11,7 +11,7 @@ All options you have within the Google Maps API are available through the `data`
 
 *   data-zoom="5"
 *   data-clickable-icons="false"
-*   data-styles="\[YOUR CUSTOM JSON STYLE\]"
+*   data-styles="[YOUR CUSTOM JSON STYLE]"
 *   data-fullscreen-control="false"
 
 For a full list of options with explanation, please visit the official google API site: [https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions](https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions)
@@ -24,7 +24,7 @@ Copy and paste the directive into your project.
 Include the module
 
 ```javascript
-angular.module('myApp', \['GoogleMaps'\])
+angular.module('myApp', ['GoogleMaps'])
 ```
 
 Place this somewhere in your `html`
@@ -65,7 +65,8 @@ Multiple addresses
 ------------------
 
 You can add multiple markers, separate them using `;`, eg:  
-`data-markers="Prunesstraat 3 opheusden"`
+`data-markers="Prunesstraat 3 opheusden;Dalwagenseweg 60a opheusden;275 Virginia Drive 
+Port Orange, FL 32127"`
 
 The map will automaticly center itself so all the markers are visible. To disable this feature, see example below
 
