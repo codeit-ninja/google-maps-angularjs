@@ -75,7 +75,7 @@ The map will automaticly center itself so all the markers are visible. To disabl
 Disable automatic centering
 ---------------------------
 
-You can disable the automatic centering of the map using  `data-center="false"`. If disabled the map will not focus on the first address given in the `data-addresses` attribute.
+You can disable the automatic centering of the map using  `data-center="false"`. If disabled the map will focus on the first address given in the `data-addresses` attribute.
 
 [https://codepen.io/richardmauritz/pen/jYPBde](https://codepen.io/richardmauritz/pen/jYPBde)
 
