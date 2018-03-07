@@ -32,8 +32,7 @@ Place this somewhere in your `html`
 ```html
 <google-maps 
     data-addresses="dalwagenseweg 60a" 
-    data-zoom="14"
-    ... >
+    data-zoom="14">
 <⁄google-maps>
 ```
 
