@@ -69,8 +69,7 @@ You can add multiple markers, separate them using `;`, eg:
 
 The map will automaticly center itself so all the markers are visible. To disable this feature, see example below
 
-[https://codepen.io/richardmauritz/pen/jYPBde]
-(https://codepen.io/richardmauritz/pen/jYPBde)
+[https://codepen.io/richardmauritz/pen/jYPBde](https://codepen.io/richardmauritz/pen/jYPBde)
 
 Disable automatic centering
 ---------------------------
