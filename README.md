@@ -23,15 +23,19 @@ Copy and paste the directive into your project.
 
 Include the module
 
+```javascript
 angular.module('myApp', \['GoogleMaps'\])
+```
 
 Place this somewhere in your `html`
 
+```html
 <google-maps 
     data-addresses="dalwagenseweg 60a" 
     data-zoom="14"
     ... >
 <⁄google-maps>
+```
 
 Using an address
 ----------------
@@ -42,9 +46,8 @@ You can specify a marker using an address, eg:
 Using latitude / longitude
 --------------------------
 
-You can specify a marker using latitude / longitude like so:  
+Separate the lat / long value with a whitespace. You can specify a marker using latitude / longitude like so:  
 `data-markers="51.927742 5.636626" // which translates to Dalwagenseweg 60a opheusden`.  
-Separate the lat / long value with a whitespace.
 
 Multiple addresses
 ------------------
